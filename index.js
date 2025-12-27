@@ -5,6 +5,7 @@ const cors = require('cors');
 const rateLimit = require('express-rate-limit');
 const helmet = require('helmet');
 
+const app = express();
 app.use(cors({
    origin: ['https://react-portfolio-gules.vercel.app/', 'http://localhost:5173'],
    credentials: true
@@ -12,7 +13,6 @@ app.use(cors({
 
 const bot = new TelegramBot(process.env.TELEGRAM_BOT_TOKEN, { polling: false });
 
-const app = express();
 app.use(express.json());
 app.use(helmet()); // безопасность HTTP заголовков
 
