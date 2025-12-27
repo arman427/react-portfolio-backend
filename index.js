@@ -16,7 +16,7 @@ app.use(cors({
 const bot = new TelegramBot(process.env.TELEGRAM_BOT_TOKEN, { polling: false });
 
 app.use(express.json());
-// app.use(helmet());
+app.use(helmet());
 
 const PORT = process.env.PORT || 5000;
 const HOUR = 60 * 60 * 1000;
