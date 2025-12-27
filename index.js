@@ -7,14 +7,16 @@ const helmet = require('helmet');
 
 const app = express();
 app.use(cors({
-   origin: ['https://react-portfolio-gules.vercel.app/', 'http://localhost:5173'],
-   credentials: true
+   origin: ['https://react-portfolio-gules.vercel.app', 'http://localhost:5173'],
+   credentials: true,
+   methods: ['GET', 'POST'],
+   allowedHeaders: ['Content-Type']
 }));
 
 const bot = new TelegramBot(process.env.TELEGRAM_BOT_TOKEN, { polling: false });
 
 app.use(express.json());
-app.use(helmet()); // безопасность HTTP заголовков
+// app.use(helmet());
 
 const PORT = process.env.PORT || 5000;
 const HOUR = 60 * 60 * 1000;
