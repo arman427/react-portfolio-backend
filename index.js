@@ -17,7 +17,7 @@ const HOUR = 60 * 60 * 1000;
 
 const limiter = rateLimit({ //    запросов в час
    windowMs: HOUR,
-   max: 5,
+   max: 10,
    message: 'Слишком много запросов, попробуйте отправить позже.'
 });
 
@@ -74,6 +74,6 @@ app.get('/health', (req, res) => {
    res.status(200).json({ status: 'OK' });
 });
 
-app.listen(PORT, () => { // слушаем порт (8080)
+app.listen(PORT, '0.0.0.0', () => { // слушаем порт (8080)
    console.log(`Server is running on http://localhost:${PORT}`);
 });
